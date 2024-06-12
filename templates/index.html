@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .form-group {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .form-group label, .form-group input {
+            width: 45%;
+            margin: 5px;
+        }
+        .form-group input[type="submit"] {
+            width: 100%;
+            margin: 10px 0;
+        }
+        .result img {
+            width: 100px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Weather Prediction</h1>
+    <center>
+        <p>Made By:</p>
+        <p>Rendy Ananta Kristanto / 71220840</p>
+        <p>Leif Sean Kusumo / 71220915</p>
+        <p>Sanjaya Cahyadi Fuad / 71220965</p>
+        <p>[TI0263] KECERDASAN BUATAN GRUP A</p>
+    </center>
+    
+    <div class="container">
+        <form action="/predict" method="post" class="form-group">
+            <label for="time">Time:</label>
+            <input type="number" id="time" name="time">
+            <label for="precipIntensity">PrecipIntensity:</label>
+            <input type="number" step="any" id="precipIntensity" name="precipIntensity">
+            <label for="precipProbability">PrecipProbability:</label>
+            <input type="number" step="any" id="precipProbability" name="precipProbability">
+            <label for="temperature">Temperature:</label>
+            <input type="number" step="any" id="temperature" name="temperature">
+            <label for="apptemp">ApparentTemperature:</label>
+            <input type="number" step="any" id="apptemp" name="apptemp">
+            <label for="dewpoint">DewPoint:</label>
+            <input type="number" step="any" id="dewpoint" name="dewpoint">
+            <label for="humidity">Humidity:</label>
+            <input type="number" step="any" id="humidity" name="humidity">
+            <label for="pressure">Pressure:</label>
+            <input type="number" step="any" id="pressure" name="pressure">
+            <label for="wind_speed">WindSpeed:</label>
+            <input type="number" step="any" id="wind_speed" name="wind_speed">
+            <label for="wind_gust">WindGust:</label>
+            <input type="number" step="any" id="wind_gust" name="wind_gust">
+            <label for="wind_bearing">WindBearing:</label>
+            <input type="number" id="wind_bearing" name="wind_bearing">
+            <label for="cloud_cover">CloudCover:</label>
+            <input type="number" step="any" id="cloud_cover" name="cloud_cover">
+            <label for="uv_index">UV Index:</label>
+            <input type="number" step="any" id="uv_index" name="uv_index">
+            <label for="visibility">Visibility:</label>
+            <input type="number" step="any" id="visibility" name="visibility">
+            <label for="ozone">Ozone:</label>
+            <input type="number" step="any" id="ozone" name="ozone">
+            <input type="submit" value="Predict">
+        </form>
+        {% if prediction %}
+            <div class="result">
+                <h2>{{ prediction }}</h2>
+                <img src="{{ url_for('static', filename=prediction_image) }}" alt="Weather Image">
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
