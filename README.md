@@ -14,4 +14,4 @@ Sanjaya Cahyadi Fuad / 71220965
 
 [TI0263] KECERDASAN BUATAN GRUP A
 
-Jika ingin membuka interface, bisa dibuka lewat folder, start bagian app.py dan copy link yang muncul di terminal ke chrome
+Jika ingin membuka interface, bisa start bagian app.py dan copy link yang muncul di terminal ke chrome
